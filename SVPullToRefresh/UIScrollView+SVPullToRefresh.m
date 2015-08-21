@@ -14,6 +14,10 @@
 #define fequal(a,b) (fabs((a) - (b)) < FLT_EPSILON)
 #define fequalzero(a) (fabs(a) < FLT_EPSILON)
 
+#define SV_COLOR(r, g, b, a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+#define SV_COLOR_TEXT_BLUE SV_COLOR(74.0, 189.0, 204.0, 1)
+#define SV_COLOR_TEXT_BLACK SV_COLOR(92.0, 92.0, 92.0, 1)
+
 static CGFloat const SVPullToRefreshViewHeight = 60;
 
 @interface SVPullToRefreshArrow : UIView
@@ -243,6 +247,7 @@ static char UIScrollViewPullToRefreshView;
                         [self rotateArrow:(float)M_PI hide:NO];
                         break;
                 }
+                self.titleLabel.textColor = SV_COLOR_TEXT_BLACK;
                 break;
                 
             case SVPullToRefreshStateTriggered:
@@ -254,6 +259,8 @@ static char UIScrollViewPullToRefreshView;
                         [self rotateArrow:0 hide:NO];
                         break;
                 }
+                self.titleLabel.textColor = SV_COLOR_TEXT_BLUE;
+
                 break;
                 
             case SVPullToRefreshStateLoading:
@@ -266,6 +273,8 @@ static char UIScrollViewPullToRefreshView;
                         [self rotateArrow:(float)M_PI hide:YES];
                         break;
                 }
+                self.titleLabel.textColor = SV_COLOR_TEXT_BLACK;
+
                 break;
         }
         

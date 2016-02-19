@@ -689,6 +689,9 @@ static char UIScrollViewPullToRefreshView;
 }
 
 - (void)drawRect:(CGRect)rect {
-    [[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Arrow.bundle/arrow" ofType:@"png"]] drawAtPoint:CGPointZero];
+    NSString* bundlePath = [[NSBundle bundleForClass:[SVPullToRefreshView class]] pathForResource:@"Arrow" ofType:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+    UIImage* image =[UIImage imageWithContentsOfFile:[bundle pathForResource:@"arrow" ofType:@"png"]];
+    [image drawAtPoint:CGPointZero];
 }
 @end

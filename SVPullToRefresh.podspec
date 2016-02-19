@@ -16,7 +16,6 @@ Pod::Spec.new do |s|
                   'method as well as a pullToRefreshView property.'
 
   s.frameworks   = 'QuartzCore'
-  s.resources = 
   s.resource_bundles = {'SVPullToRefresh' => ['SVPullToRefresh/Arrow.bundle/*.png']}
   s.source_files = 'SVPullToRefresh/*.{h,m}'
   s.preserve_paths  = 'Demo'
